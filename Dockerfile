@@ -28,11 +28,15 @@ RUN apk add --no-cache \
   openssl \
   pugixml
 
+RUN addgroup -g 1000 appgroup && adduser -u 1000 -G appgroup -s /sbin/nologin -D appuser
+
 COPY --from=build /usr/src/forgottenserver/build/RelWithDebInfo/tfs /bin/tfs
-COPY data /srv/data/
-COPY LICENSE README.md *.dist *.sql key.pem /srv/
+COPY key.pem /srv/
+
+RUN chown -R appuser:appgroup /srv
 
 EXPOSE 7171 7172
+USER appuser
 WORKDIR /srv
 VOLUME /srv
 ENTRYPOINT ["/bin/tfs"]
