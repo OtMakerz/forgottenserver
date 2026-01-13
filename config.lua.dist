@@ -21,7 +21,7 @@ expFromPlayersLevelRange = 75
 -- NOTE: allowWalkthrough is only applicable to players
 -- NOTE: two-factor auth requires token and timestamp in session key
 -- NOTE: statusCountMaxPlayersPerIp allows you to only count up to X players per IP in status response (0 = disabled)
-ip = "127.0.0.1"
+ip = "otmakerz.mikaelhug.se"
 bindOnlyGlobalAddress = false
 gameProtocolPort = 7172
 statusProtocolPort = 7171
@@ -79,11 +79,10 @@ maxMarketOffersAtATimePerPlayer = 100
 -- MySQL
 mysqlHost = "tfs-db"
 mysqlUser = "forgottenserver"
-mysqlPass = ""
 mysqlDatabase = "forgottenserver"
+mysqlPass = ""
 mysqlPort = 3306
 mysqlSock = ""
-server_ip = ""
 
 -- Misc.
 -- NOTE: classicAttackSpeed set to true makes players constantly attack at regular
