@@ -181,7 +181,7 @@ LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `accounts` VALUES
-(1,'admin','e371aaa9956cea46928d074ec4ee4e5acb62f5c8',NULL,6,0,'admin@otmakerz.com','',1768135380,'','','us',0,3,1,'',0,'',0,0,0,0);
+(1,'admin','e371aaa9956cea46928d074ec4ee4e5acb62f5c8','',6,1854736554,'admin@otmakerz.com','',1768135380,'','','us',1768336517,3,1,'',0,'',0,0,0,0);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3112,7 +3112,7 @@ set autocommit=0;
 INSERT INTO `players` VALUES
 (1,'Admin',6,1,1,0,100,100,0,10,10,10,10,136,0,0,0,0,0,0,0,0,0,0,100,100,0,0,1,0,0,0,'',0,0,0,'0',1,0,0,0,0,0,0,0,43200,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1768135380,0,''),
 (2,'Rook Sample',1,1,1,0,150,150,0,118,114,38,57,130,0,0,0,0,0,0,0,0,2,0,0,0,0,100,1,1000,1000,7,'',400,1,1768135380,'2130706433',1,0,0,1768135380,0,0,0,0,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,''),
-(3,'Sorcerer Sample',1,1,8,1,185,185,4200,118,114,38,57,130,0,0,0,0,0,0,0,0,2,0,90,90,0,100,1,1000,1000,7,'',470,1,1768135380,'2130706433',1,0,0,1768135380,0,0,0,0,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,''),
+(3,'Sorcerer Sample',1,1,8000,5,185000,185000,8526935599800,118,118,38,57,130,0,0,0,0,0,0,0,0,2,300,900000,900000,0,100,1,32957,32076,7,'',4700,1,1768336559,'\0\0\0\0\0\0\0\0\0\0ÿÿÀ¨A',1,0,0,1768336561,5,2,0,10000000,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,''),
 (4,'Druid Sample',1,1,8,2,185,185,4200,118,114,38,57,130,0,0,0,0,0,0,0,0,2,0,90,90,0,100,1,1000,1000,7,'',470,1,1768135380,'2130706433',1,0,0,1768135380,0,0,0,0,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,''),
 (5,'Paladin Sample',1,1,8,3,185,185,4200,118,114,38,57,129,0,0,0,0,0,0,0,0,2,0,90,90,0,100,1,1000,1000,7,'',470,1,1768135380,'2130706433',1,0,0,1768135380,0,0,0,0,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,''),
 (6,'Knight Sample',1,1,8,4,185,185,4200,118,114,38,57,131,0,0,0,0,0,0,0,0,2,0,90,90,0,100,1,1000,1000,7,'',470,1,1768135380,'2130706433',1,0,0,1768135380,0,0,0,0,43200,-1,2520,10,0,10,0,10,0,10,0,10,0,10,0,10,0,1768135380,1,'');
@@ -3158,6 +3158,8 @@ CREATE TABLE `players_online` (
 LOCK TABLES `players_online` WRITE;
 /*!40000 ALTER TABLE `players_online` DISABLE KEYS */;
 set autocommit=0;
+INSERT INTO `players_online` VALUES
+(3);
 /*!40000 ALTER TABLE `players_online` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3185,7 +3187,7 @@ LOCK TABLES `server_config` WRITE;
 set autocommit=0;
 INSERT INTO `server_config` VALUES
 ('db_version','37'),
-('players_record','0');
+('players_record','1');
 /*!40000 ALTER TABLE `server_config` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3208,7 +3210,7 @@ CREATE TABLE `sessions` (
   UNIQUE KEY `token` (`token`),
   KEY `account_id` (`account_id`),
   CONSTRAINT `1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3218,6 +3220,9 @@ CREATE TABLE `sessions` (
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 set autocommit=0;
+INSERT INTO `sessions` VALUES
+(1,'L«\åPz\ÅªZ	ñ†‚“x;',1,'\0\0\0\0\0\0\0\0\0\0ÿÿÀ¨A','2026-01-13 20:35:57',NULL),
+(2,';\ÛL¦$–\Úý¹\æúHIq\Ù',1,'\0\0\0\0\0\0\0\0\0\0ÿÿÀ¨A','2026-01-13 20:36:29',NULL);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3263,7 +3268,7 @@ CREATE TABLE `towns` (
   `posz` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3274,11 +3279,26 @@ LOCK TABLES `towns` WRITE;
 /*!40000 ALTER TABLE `towns` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `towns` VALUES
-(1,'Trekolt',95,117,7),
-(2,'Rhyves',159,387,6),
-(3,'Varak',242,429,12),
-(4,'Jorvik',496,172,7),
-(5,'Saund',240,566,7);
+(1,'Venore',32957,32076,7),
+(2,'Thais',32369,32241,7),
+(3,'Kazordoon',32649,31925,11),
+(4,'Carlin',32360,31782,7),
+(5,'Ab\'Dendriel',32732,31634,7),
+(6,'Rookgaard',32097,32219,7),
+(7,'Liberty Bay',32317,32826,7),
+(8,'Port Hope',32594,32745,7),
+(9,'Ankrahmun',33194,32853,8),
+(10,'Darashia',33213,32454,1),
+(11,'Edron',33217,31814,8),
+(12,'Svargrond',32212,31132,7),
+(13,'Yalahar',32787,31276,7),
+(14,'Farmine',33023,31521,11),
+(28,'Gray Beach',33447,31323,9),
+(29,'Roshamuul',33513,32363,6),
+(30,'Rookgaard Tutorial Island',31976,32276,7),
+(31,'Isle of Solitude',32316,31942,7),
+(32,'Island Of Destiny',32091,32027,7),
+(33,'Rathleton',33594,31899,6);
 /*!40000 ALTER TABLE `towns` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3348,4 +3368,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-01-11 12:51:46
+-- Dump completed on 2026-01-13 20:37:14
