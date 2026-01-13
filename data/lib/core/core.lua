@@ -22,3 +22,5 @@ dofile('data/lib/core/teleport.lua')
 dofile('data/lib/core/tile.lua')
 dofile('data/lib/core/town.lua')
 dofile('data/lib/core/vocation.lua')
+
+dofile('data/lib/core/string.lua')
