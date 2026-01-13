@@ -1,5 +1,6 @@
 -- Note: The library of storages must be loaded previously to the other libraries.
 dofile('data/lib/core/storages.lua')
+dofile('data/lib/core/functions.lua')
 
 dofile('data/lib/core/achievements.lua')
 dofile('data/lib/core/actionids.lua')
