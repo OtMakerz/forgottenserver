@@ -186,3 +186,4 @@ pip-log.txt
 #############
 config.lua
 schema.sql
+data/world/map.otbm
